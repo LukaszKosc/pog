@@ -1,0 +1,36 @@
+Code based on classes created by Sidelnikov Mikhail.
+
+How to install:
+1. Add d:\\Tools\\ to windows path
+2. Use files:
+d:\\Tools\\selenium-server-standalone-2.53.1.jar
+d:\\Tools\\selenium-server-standalone-3.4.0.jar
+d:\\Tools\\chromedriver.exe
+d:\\Tools\\IEDriverServer.exe
+
+Hub:
+java -jar d:\\Tools\\selenium-server-standalone-2.53.1.jar -port 4444 -role hub -nodeTimeout 1000
+java -jar d:\\Tools\\selenium-server-standalone-3.4.0.jar -port 4444 -role hub
+
+CHROME:
+java -Dwebdriver.chrome.driver=d:\\Tools\\chromedriver.exe -jar d:\\Tools\\selenium-server-standalone-2.53.1.jar -role webdriver -hub  http://192.168.0.14:4444/grid/register -browser browserName=chrome,platform=WINDOWS -port 5557
+java -Dwebdriver.chrome.driver=d:\\Tools\\chromedriver.exe -jar d:\\Tools\\selenium-server-standalone-3.4.0.jar -role webdriver -hub  http://192.168.1.3:4444/grid/register -browser browserName=chrome,platform=WINDOWS -port 5557
+
+FF:
+java -jar d:\\Tools\\selenium-server-standalone-2.53.1.jar -role node -hub http://192.168.0.14:4444/grid/register -browser browserName=firefox -port 5555
+java -jar d:\\Tools\\selenium-server-standalone-3.4.0.jar -role node -hub http://192.168.1.3:4444/grid/register -browser browserName=firefox -port 5555
+
+IE:
+java -Dwebdriver.ie.driver=d:\\Tools\\IEDriverServer.exe -jar d:\\Tools\\selenium-server-standalone-2.53.1.jar -role webdriver -hub http://192.168.0.14:4444/grid/register -browser browserName="internet explorer",platform=WINDOWS -port 5558
+java -Dwebdriver.ie.driver=d:\\Tools\\IEDriverServer.exe -jar d:\\Tools\\selenium-server-standalone-3.4.0.jar -role webdriver -hub http://192.168.1.3:4444/grid/register -browser browserName="internet explorer",platform=WINDOWS -port 5558
+
+URLs:
+Chromedriver:
+https://chromedriver.storage.googleapis.com/2.27/chromedriver_win32.zip
+https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
+
+IEDriver:
+http://selenium-release.storage.googleapis.com/2.53/IEDriverServer_x64_2.53.1.zip
+
+selenium-server-standalone:
+http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
